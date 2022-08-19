@@ -1,18 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { PageOne } from './pages/PageOne'
-import { PageTwo } from './pages/PageTwo'
-import { Home } from './pages/Home'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import { Container } from 'react-bootstrap'
+import { TodoHeader } from './components/TodoHeader'
+import { TodoList } from './components/TodoList'
 
 function App (): JSX.Element {
   return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />}/>
-                <Route path="page1" element={<PageOne />} />
-                <Route path="page2" element={<PageTwo />} />
-            </Routes>
-        </BrowserRouter>
+    <Container >
+      <TodoHeader title={'TODO list'} />
+      <TodoList />
+    </Container>
   )
 }
 

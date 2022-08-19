@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "^5.3.3",
     "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -26,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "eslint --ext .jsx,.js,.tsx,.ts --fix src",
-    "eslint-check": "eslint --ext .jsx,.js,.tsx,.ts src"
+    "eslint": "eslint --cache --ext .jsx,.js,.tsx,.ts --fix src",
+    "eslint-check": "eslint --cache --ext .jsx,.js,.tsx,.ts src"
   },
   "eslintConfig": {
     "extends": "react-app"
