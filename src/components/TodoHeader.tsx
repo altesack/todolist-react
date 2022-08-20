@@ -1,14 +1,16 @@
+import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
 interface Props {
   title: string
+  size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
-export const TodoHeader = ({ title }: Props): JSX.Element => {
+export const TodoHeader: React.FC<Props> = ({ title, size }: Props) => {
   return (
     <Row>
         <Col>
-            <h1>{title}</h1>
+            <p className={size}>{title}</p>
         </Col>
     </Row>
   )

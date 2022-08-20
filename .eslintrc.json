@@ -35,8 +35,7 @@
   "plugins": [
     "react",
     "promise",
-    "import",
-    "n"
+    "import"
   ],
   "extends": [
     "eslint:recommended",
@@ -44,7 +43,6 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
     "plugin:promise/recommended",
-    "plugin:n/recommended",
     "plugin:import/recommended",
     "standard-with-typescript"
   ],
@@ -53,10 +51,6 @@
     "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/triple-slash-reference": "off",
     "curly": "error",
-    "n/no-unsupported-features/es-syntax": [
-      "error",
-      { "ignores": ["modules"] }
-    ],
-    "n/no-missing-import": "off"
+    "comma-dangle": ["error", "always-multiline"]
   }
 }

@@ -1,15 +1,14 @@
-// duplicated
-interface TodoListItemProps {
-  // id: number, //???
-  name: string
-  isDone: boolean
-  // order: number, //???
+import React from 'react'
+import { TodoListItemType } from '../reducers/todoSlice'
+
+interface TodoListItemTextProps {
+  item: TodoListItemType
 }
 
-export const TodoListItemText = ({ name, isDone }: TodoListItemProps): JSX.Element => {
-  if (isDone) {
-    return <s>{name}</s>
+export const TodoListItemText: React.FC<TodoListItemTextProps> = ({ item }: TodoListItemTextProps) => {
+  if (item.isDone) {
+    return <s>{item.name}</s>
   }
 
-  return <>{name}</>
+  return <>{item.name}</>
 }

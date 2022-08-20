@@ -1,27 +1,40 @@
-import { Col, Row } from 'react-bootstrap'
+import React from 'react'
+import { CloseButton, Col, Row } from 'react-bootstrap'
 import FormCheckInput from 'react-bootstrap/FormCheckInput'
 import { TodoListItemText } from './TodoListItemText'
 import { Icon } from './Icon'
+import { removeItem, TodoListItemType, toggleDone } from '../reducers/todoSlice'
+import { useDispatch } from 'react-redux'
 
 interface TodoListItemProps {
-  // id: number, //???
-  name: string
-  isDone: boolean
-  // order: number, //???
+  item: TodoListItemType
 }
 
-export const TodoListItem = ({ name, isDone }: TodoListItemProps): JSX.Element => {
+export const TodoListItem: React.FC<TodoListItemProps> = ({ item }: TodoListItemProps) => {
+  const dispatch = useDispatch()
+
+  const remove = (): void => {
+    dispatch(removeItem(item.id))
+  }
+
+  const toggle = (): void => {
+    dispatch(toggleDone(item.id))
+  }
+
   return (
-        <Row>
-            <Col>
-                <Icon name={'arrows-move'}/>
-            </Col>
-            <Col md={10}>
-                <TodoListItemText isDone={isDone} name={name}/>
-            </Col>
-            <Col>
-                <FormCheckInput checked={isDone}/>
-            </Col>
-        </Row>
+    <Row>
+      <Col>
+        <Icon name={'arrows-move'} />
+      </Col>
+      <Col md={9}>
+        <TodoListItemText item={item}/>
+      </Col>
+      <Col>
+        <FormCheckInput checked={item.isDone} onClick={toggle}/>
+      </Col>
+      <Col>
+        <CloseButton onClick={remove}/>
+      </Col>
+    </Row>
   )
 }

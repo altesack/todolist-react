@@ -1,7 +1,19 @@
+import React from 'react'
 import { TodoListItem } from './TodoListItem'
+import { TodoListItemType } from '../reducers/todoSlice'
+import { NoItems } from './NoItems'
 
-export const TodoList = (): JSX.Element => {
-  return (
-    <TodoListItem isDone={true} name={'blablabla'} key={'something here'}/>
-  )
+interface TodoListProps {
+  items: TodoListItemType[]
+}
+
+export const TodoList: React.FC<TodoListProps> = ({ items }: TodoListProps) => {
+  if (items.length === 0) {
+    return <NoItems/>
+  }
+
+  return <>{
+    items.map(
+      (item) => <TodoListItem item={item} key={item.id}/>)
+  }</>
 }
