@@ -24,7 +24,7 @@ export const todoSlice = createSlice({
     addItem: (state) => {
       state.data.push({
         id: state.data.length + 1,
-        name: 'asdasdasda', // TODO to be replaced by empty string
+        name: '',
         isDone: false,
         isDeleted: false,
       })
@@ -41,12 +41,16 @@ export const todoSlice = createSlice({
         item.isDone = !item.isDone
       }
     },
-
-    // TODO renameItem
+    renameItem: (state, action: PayloadAction<{ id: number, name: string }>) => {
+      const item = state.data.find((item) => action.payload.id === item.id)
+      if (item !== undefined) {
+        item.name = action.payload.name
+      }
+    },
     // TODO reorder drag'n'drop
   },
 })
 
-export const { addItem, removeItem, toggleDone } = todoSlice.actions
+export const { addItem, removeItem, toggleDone, renameItem } = todoSlice.actions
 
 export default todoSlice.reducer
