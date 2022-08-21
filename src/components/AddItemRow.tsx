@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
-import { Icon } from './Icon'
+import { Icon } from './common/Icon'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../reducers/todoSlice'
 
-export const AddItem: React.FC = () => {
+export const AddItemRow: React.FC = () => {
   const dispatch = useDispatch()
 
   const click = (): void => {

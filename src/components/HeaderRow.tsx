@@ -6,7 +6,7 @@ interface Props {
   size?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
-export const TodoHeader: React.FC<Props> = ({ title, size }: Props) => {
+export const HeaderRow: React.FC<Props> = ({ title, size }: Props) => {
   return (
     <Row>
         <Col>

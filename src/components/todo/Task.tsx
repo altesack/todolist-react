@@ -1,16 +1,16 @@
 import React from 'react'
 import { CloseButton, Col, Row } from 'react-bootstrap'
 import FormCheckInput from 'react-bootstrap/FormCheckInput'
-import { TodoListItemText } from './TodoListItemText'
-import { Icon } from './Icon'
-import { removeItem, TodoListItemType, toggleDone } from '../reducers/todoSlice'
+import { Icon } from '../common/Icon'
+import { TaskName } from './TaskName'
+import { removeItem, TodoListItemType, toggleDone } from '../../reducers/todoSlice'
 import { useDispatch } from 'react-redux'
 
-interface TodoListItemProps {
+interface TaskProps {
   item: TodoListItemType
 }
 
-export const TodoListItem: React.FC<TodoListItemProps> = ({ item }: TodoListItemProps) => {
+export const Task: React.FC<TaskProps> = ({ item }: TaskProps) => {
   const dispatch = useDispatch()
 
   const remove = (): void => {
@@ -27,7 +27,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({ item }: TodoListItem
         <Icon name={'arrows-move'} />
       </Col>
       <Col md={9}>
-        <TodoListItemText item={item}/>
+        <TaskName item={item}/>
       </Col>
       <Col>
         <FormCheckInput checked={item.isDone} onClick={toggle}/>

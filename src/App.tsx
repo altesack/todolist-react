@@ -2,9 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import { TodoHeader } from './components/TodoHeader'
-import { TodoList } from './components/TodoList'
-import { AddItem } from './components/AddItem'
+import { HeaderRow } from './components/HeaderRow'
+import { TasksList } from './components/todo/TasksList'
+import { AddItemRow } from './components/AddItemRow'
 import { useSelector } from 'react-redux'
 import { getDoneItems, getNotDoneItems } from './reducers/todoSelectors'
 
@@ -14,13 +14,13 @@ const App: React.FC = () => {
 
   return (
     <Container >
-      <TodoHeader title={'TODO list'} size={'h1'}/>
-      <TodoList items={notDoneItems}/>
-      <AddItem/>
+      <HeaderRow title={'TODO list'} size={'h1'}/>
+      <TasksList items={notDoneItems}/>
+      <AddItemRow/>
       {doneItems.length !== 0 &&
       <>
-        <TodoHeader title={'Completed tasks'} size={'h4'}/>
-        <TodoList items={doneItems}/>
+        <HeaderRow title={'Completed tasks'} size={'h4'}/>
+        <TasksList items={doneItems}/>
       </>
       }
     </Container>
